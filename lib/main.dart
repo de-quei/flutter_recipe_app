@@ -7,6 +7,7 @@ import 'package:flutter_recipe_app_course/core/presentation/components/rating_bu
 import 'package:flutter_recipe_app_course/core/presentation/components/small_button.dart';
 import 'package:flutter_recipe_app_course/core/presentation/components/two_tap.dart';
 import 'package:flutter_recipe_app_course/core/presentation/dialogs/rating_dialog.dart';
+import 'package:flutter_recipe_app_course/presentation/sign_in/sign_in_screen.dart';
 import 'package:flutter_recipe_app_course/ui/text_styles.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: MyHomePage(),
+      home: SignInScreen(),
     );
   }
 }
