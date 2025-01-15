@@ -5,7 +5,14 @@ import 'package:flutter_recipe_app_course/ui/color_styles.dart';
 import 'package:flutter_recipe_app_course/ui/text_styles.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+  final VoidCallback onTapSignin;
+  final VoidCallback onTapSignUp;
+
+  const SignInScreen({
+    super.key,
+    required this.onTapSignUp,
+    required this.onTapSignin,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class SignInScreen extends StatelessWidget {
               const SizedBox(height: 25),
               BigButton(
                 text: 'Sign In',
-                onPressed: () {},
+                onPressed: onTapSignin,
               ),
               const SizedBox(height: 20),
               Row(
@@ -92,10 +99,13 @@ class SignInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text('Don\'t have an account? '),
-                  Text(
-                    'Sign up',
-                    style: TextStyles.smallerTextBold
-                        .copyWith(color: ColorStyles.secondary100),
+                  GestureDetector(
+                    onTap: onTapSignUp,
+                    child: Text(
+                      'Sign up',
+                      style: TextStyles.smallerTextBold
+                          .copyWith(color: ColorStyles.secondary100),
+                    ),
                   ),
                 ],
               )
