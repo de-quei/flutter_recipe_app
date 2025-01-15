@@ -5,8 +5,16 @@ import 'package:flutter_recipe_app_course/ui/text_styles.dart';
 class SmallButton extends StatefulWidget {
   final String text;
   final void Function() onPressed;
+  final Color color;
+  final TextStyle? textStyle;
 
-  const SmallButton({super.key, required this.text, required this.onPressed});
+  const SmallButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.color = ColorStyles.primary100,
+    this.textStyle,
+  });
 
   @override
   State<SmallButton> createState() => _SmallButtonState();
@@ -38,14 +46,15 @@ class _SmallButtonState extends State<SmallButton> {
         height: 37,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: isPressed ? ColorStyles.gray4 : ColorStyles.primary100,
+          color: isPressed ? ColorStyles.gray4 : widget.color,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               widget.text,
-              style: TextStyles.normalTextBold.copyWith(color: Colors.white),
+              style: (widget.textStyle ?? TextStyles.normalTextBold)
+                  .copyWith(color: Colors.white),
             ),
           ],
         ),
