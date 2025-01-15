@@ -5,6 +5,7 @@ import 'package:flutter_recipe_app_course/core/presentation/components/input_fie
 import 'package:flutter_recipe_app_course/core/presentation/components/medium_button.dart';
 import 'package:flutter_recipe_app_course/core/presentation/components/rating_button.dart';
 import 'package:flutter_recipe_app_course/core/presentation/components/small_button.dart';
+import 'package:flutter_recipe_app_course/core/presentation/components/two_tap.dart';
 import 'package:flutter_recipe_app_course/ui/text_styles.dart';
 
 void main() {
@@ -36,8 +37,20 @@ class MyHomePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          TwoTap(
+            labels: const ['label 1', 'label 2'],
+            selectedIndex: 1,
+            onChange: (int index) {
+              print('TwoTab: $index');
+            },
+          ),
           const RatingButton('5'),
           const RatingButton('5', isSelected: true),
+          const FilterButton('Text'),
+          const FilterButton(
+            'Text',
+            isSelected: true,
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: BigButton(
@@ -46,11 +59,6 @@ class MyHomePage extends StatelessWidget {
                 print('big button');
               },
             ),
-          ),
-          const FilterButton('Text'),
-          const FilterButton(
-            'Text',
-            isSelected: true,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
